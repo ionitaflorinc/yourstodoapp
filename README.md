@@ -1,1 +1,1 @@
-# yourstodoapp
+# A simple TODO app which would help you organize stuff
