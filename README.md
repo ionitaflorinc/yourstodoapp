@@ -2,7 +2,7 @@
 
 App purpose:
 
-	1. A user can start using the app by entering email and giving an invitation link by email.
+	1. A user can start using the app by entering email and getting an invitation link by email.
 	2. A user can see his todo list, enter and edit each one.
 	3. A user can add, update, remove, delete a task (he can use dialog, pickers, to create it's todo task)
 	4. A user can use the app offline, data would be persisted locally
