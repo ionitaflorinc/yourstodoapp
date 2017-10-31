@@ -6,7 +6,7 @@ App purpose:
 	2. A user can see his todo list, enter and edit each one.
 	3. A user can add, update, remove, delete a task (he can use dialog, pickers, to create it's todo task)
 	4. A user can use the app offline, data would be persisted locally
-	5. A user can get notifications
+	5. A user can get notifications (as power user, he wil get reminders)
 	6. When goes online his data will be synchronized with the server 
 	7. A user will be able to authenticate by email and password
 	8. Each task will be submited on background threads 
