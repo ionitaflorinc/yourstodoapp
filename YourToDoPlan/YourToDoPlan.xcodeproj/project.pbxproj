@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C4F21871FB595340014369D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F21861FB595340014369D /* AppDelegate.swift */; };
+		4C4F218C1FB595340014369D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F218A1FB595340014369D /* Main.storyboard */; };
+		4C4F218E1FB595340014369D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F218D1FB595340014369D /* Assets.xcassets */; };
+		4C4F21911FB595340014369D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F218F1FB595340014369D /* LaunchScreen.storyboard */; };
+		4C4F21991FB5968C0014369D /* TDOMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F21981FB5968C0014369D /* TDOMainTableViewController.swift */; };
+		4C4F219B1FB597770014369D /* TDOAddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F219A1FB597770014369D /* TDOAddTaskButton.swift */; };
+		4C4F219D1FB597940014369D /* TDOAddTaskButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F219C1FB597940014369D /* TDOAddTaskButton.xib */; };
+		4C4F219F1FB5CFF10014369D /* TDOSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F219E1FB5CFF10014369D /* TDOSendButton.swift */; };
+		4C4F21A21FB5D60E0014369D /* TDOTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F21A01FB5D60E0014369D /* TDOTaskViewController.swift */; };
+		4C4F21A31FB5D60E0014369D /* TDOTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F21A11FB5D60E0014369D /* TDOTaskViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C4F21831FB595340014369D /* YourToDoPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourToDoPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C4F21861FB595340014369D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C4F218B1FB595340014369D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C4F218D1FB595340014369D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C4F21901FB595340014369D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4C4F21921FB595340014369D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C4F21981FB5968C0014369D /* TDOMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOMainTableViewController.swift; sourceTree = "<group>"; };
+		4C4F219A1FB597770014369D /* TDOAddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOAddTaskButton.swift; sourceTree = "<group>"; };
+		4C4F219C1FB597940014369D /* TDOAddTaskButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TDOAddTaskButton.xib; sourceTree = "<group>"; };
+		4C4F219E1FB5CFF10014369D /* TDOSendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOSendButton.swift; sourceTree = "<group>"; };
+		4C4F21A01FB5D60E0014369D /* TDOTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOTaskViewController.swift; sourceTree = "<group>"; };
+		4C4F21A11FB5D60E0014369D /* TDOTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TDOTaskViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C4F21801FB595340014369D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C4F217A1FB595340014369D = {
+			isa = PBXGroup;
+			children = (
+				4C4F21851FB595340014369D /* YourToDoPlan */,
+				4C4F21841FB595340014369D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C4F21841FB595340014369D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C4F21831FB595340014369D /* YourToDoPlan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C4F21851FB595340014369D /* YourToDoPlan */ = {
+			isa = PBXGroup;
+			children = (
+				4C4F21861FB595340014369D /* AppDelegate.swift */,
+				4C4F218A1FB595340014369D /* Main.storyboard */,
+				4C4F218D1FB595340014369D /* Assets.xcassets */,
+				4C4F218F1FB595340014369D /* LaunchScreen.storyboard */,
+				4C4F21921FB595340014369D /* Info.plist */,
+				4C4F21981FB5968C0014369D /* TDOMainTableViewController.swift */,
+				4C4F219A1FB597770014369D /* TDOAddTaskButton.swift */,
+				4C4F219C1FB597940014369D /* TDOAddTaskButton.xib */,
+				4C4F219E1FB5CFF10014369D /* TDOSendButton.swift */,
+				4C4F21A01FB5D60E0014369D /* TDOTaskViewController.swift */,
+				4C4F21A11FB5D60E0014369D /* TDOTaskViewController.xib */,
+			);
+			path = YourToDoPlan;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C4F21821FB595340014369D /* YourToDoPlan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C4F21951FB595340014369D /* Build configuration list for PBXNativeTarget "YourToDoPlan" */;
+			buildPhases = (
+				4C4F217F1FB595340014369D /* Sources */,
+				4C4F21801FB595340014369D /* Frameworks */,
+				4C4F21811FB595340014369D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YourToDoPlan;
+			productName = YourToDoPlan;
+			productReference = 4C4F21831FB595340014369D /* YourToDoPlan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C4F217B1FB595340014369D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TDO;
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = TDO;
+				TargetAttributes = {
+					4C4F21821FB595340014369D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4C4F217E1FB595340014369D /* Build configuration list for PBXProject "YourToDoPlan" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C4F217A1FB595340014369D;
+			productRefGroup = 4C4F21841FB595340014369D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C4F21821FB595340014369D /* YourToDoPlan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C4F21811FB595340014369D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C4F21A31FB5D60E0014369D /* TDOTaskViewController.xib in Resources */,
+				4C4F219D1FB597940014369D /* TDOAddTaskButton.xib in Resources */,
+				4C4F21911FB595340014369D /* LaunchScreen.storyboard in Resources */,
+				4C4F218E1FB595340014369D /* Assets.xcassets in Resources */,
+				4C4F218C1FB595340014369D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C4F217F1FB595340014369D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C4F21991FB5968C0014369D /* TDOMainTableViewController.swift in Sources */,
+				4C4F219B1FB597770014369D /* TDOAddTaskButton.swift in Sources */,
+				4C4F21871FB595340014369D /* AppDelegate.swift in Sources */,
+				4C4F21A21FB5D60E0014369D /* TDOTaskViewController.swift in Sources */,
+				4C4F219F1FB5CFF10014369D /* TDOSendButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4C4F218A1FB595340014369D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C4F218B1FB595340014369D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4C4F218F1FB595340014369D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C4F21901FB595340014369D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C4F21931FB595340014369D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4C4F21941FB595340014369D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C4F21961FB595340014369D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL9M7KB7DT;
+				INFOPLIST_FILE = YourToDoPlan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TDO.YourToDoPlan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4C4F21971FB595340014369D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL9M7KB7DT;
+				INFOPLIST_FILE = YourToDoPlan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TDO.YourToDoPlan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C4F217E1FB595340014369D /* Build configuration list for PBXProject "YourToDoPlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C4F21931FB595340014369D /* Debug */,
+				4C4F21941FB595340014369D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C4F21951FB595340014369D /* Build configuration list for PBXNativeTarget "YourToDoPlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C4F21961FB595340014369D /* Debug */,
+				4C4F21971FB595340014369D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C4F217B1FB595340014369D /* Project object */;
+}
