@@ -9,18 +9,20 @@
 import UIKit
 import MessageUI
 
+let kTDODatasource = "kTDODatasource"
+
 class TDOMainTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    // Mark : Properties
+    
     fileprivate var addTaskButton: TDOAddTaskButton!
-    fileprivate var dataSource: [String] = [
-        "First task for today \nMonday",
-        "Second task for today \nMonday",
-        "Third task for today \nMonday",
-        "Forth task for today \nMonday"
-    ]
+    fileprivate var dataSource: [String]!
+    
+    // MARK : Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        self.setupDataSource()
         self.view.layoutIfNeeded()
     }
     
@@ -29,6 +31,23 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
         
         self.setupAddTaskButton()
         UIApplication.shared.windows.last?.addSubview(self.addTaskButton);
+    }
+    
+    // MARK: Private
+    
+    fileprivate func setupDataSource() {
+        let dataSource = UserDefaults.standard.object(forKey: kTDODatasource)
+        
+        if dataSource == nil {
+            self.dataSource = [
+                "First task for today \nMonday",
+                "Second task for today \nMonday",
+                "Third task for today \nMonday",
+                "Forth task for today \nMonday"
+            ]
+        } else {
+            self.dataSource = dataSource as! [String]
+        }
     }
     
     fileprivate func setupAddTaskButton() {
@@ -72,12 +91,22 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
         
         cell.addSubview(textView)
         
-        let sendButton: TDOSendButton = TDOSendButton.init(frame: CGRect.init(x: cell.frame.width * 0.8, y: height * 0.7, width: 70, height: 30))
+        let sendButton: TDOActionButton = TDOActionButton.init(frame: CGRect.init(x: cell.frame.width * 0.8, y: height * 0.7, width: 70, height: 30), title : "Send")
         sendButton.buttonTapped = {
             self.sendEmail(text: textView.text)
         }
         
         cell.addSubview(sendButton)
+        
+        let removeButton: TDOActionButton = TDOActionButton.init(frame: CGRect.init(x: 20.0, y: height * 0.7, width: 70, height: 30), title: "Remove")
+        removeButton.buttonTapped = {
+            self.dataSource.remove(at: indexPath.row)
+            UserDefaults.standard.setValue(self.dataSource, forKey: kTDODatasource)
+            tableView.reloadData()
+        }
+        
+        cell.addSubview(removeButton)
+        
         cell.layer.addBorder(edge: .bottom, color: UIColor.lightGray, thickness: 1)
         return cell
     }

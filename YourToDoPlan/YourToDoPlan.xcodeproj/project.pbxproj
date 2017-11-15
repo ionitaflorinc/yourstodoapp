@@ -14,7 +14,7 @@
 		4C4F21991FB5968C0014369D /* TDOMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F21981FB5968C0014369D /* TDOMainTableViewController.swift */; };
 		4C4F219B1FB597770014369D /* TDOAddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F219A1FB597770014369D /* TDOAddTaskButton.swift */; };
 		4C4F219D1FB597940014369D /* TDOAddTaskButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F219C1FB597940014369D /* TDOAddTaskButton.xib */; };
-		4C4F219F1FB5CFF10014369D /* TDOSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F219E1FB5CFF10014369D /* TDOSendButton.swift */; };
+		4C4F219F1FB5CFF10014369D /* TDOActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F219E1FB5CFF10014369D /* TDOActionButton.swift */; };
 		4C4F21A21FB5D60E0014369D /* TDOTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F21A01FB5D60E0014369D /* TDOTaskViewController.swift */; };
 		4C4F21A31FB5D60E0014369D /* TDOTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F21A11FB5D60E0014369D /* TDOTaskViewController.xib */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		4C4F21981FB5968C0014369D /* TDOMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOMainTableViewController.swift; sourceTree = "<group>"; };
 		4C4F219A1FB597770014369D /* TDOAddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOAddTaskButton.swift; sourceTree = "<group>"; };
 		4C4F219C1FB597940014369D /* TDOAddTaskButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TDOAddTaskButton.xib; sourceTree = "<group>"; };
-		4C4F219E1FB5CFF10014369D /* TDOSendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOSendButton.swift; sourceTree = "<group>"; };
+		4C4F219E1FB5CFF10014369D /* TDOActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOActionButton.swift; sourceTree = "<group>"; };
 		4C4F21A01FB5D60E0014369D /* TDOTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDOTaskViewController.swift; sourceTree = "<group>"; };
 		4C4F21A11FB5D60E0014369D /* TDOTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TDOTaskViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +72,7 @@
 				4C4F21981FB5968C0014369D /* TDOMainTableViewController.swift */,
 				4C4F219A1FB597770014369D /* TDOAddTaskButton.swift */,
 				4C4F219C1FB597940014369D /* TDOAddTaskButton.xib */,
-				4C4F219E1FB5CFF10014369D /* TDOSendButton.swift */,
+				4C4F219E1FB5CFF10014369D /* TDOActionButton.swift */,
 				4C4F21A01FB5D60E0014369D /* TDOTaskViewController.swift */,
 				4C4F21A11FB5D60E0014369D /* TDOTaskViewController.xib */,
 			);
@@ -158,7 +158,7 @@
 				4C4F219B1FB597770014369D /* TDOAddTaskButton.swift in Sources */,
 				4C4F21871FB595340014369D /* AppDelegate.swift in Sources */,
 				4C4F21A21FB5D60E0014369D /* TDOTaskViewController.swift in Sources */,
-				4C4F219F1FB5CFF10014369D /* TDOSendButton.swift in Sources */,
+				4C4F219F1FB5CFF10014369D /* TDOActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

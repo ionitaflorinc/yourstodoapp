@@ -9,25 +9,25 @@
 import UIKit
 import MessageUI
 
-class TDOSendButton: UIButton, MFMailComposeViewControllerDelegate  {
+class TDOActionButton: UIButton, MFMailComposeViewControllerDelegate  {
     public var task: String?
     public var buttonTapped: (() -> Void)?
     
-    override init(frame: CGRect) {
+    public init(frame: CGRect, title: String) {
         super.init(frame: frame);
         
-        self.setTitle("Send", for: .normal)
+        self.setTitle(title, for: .normal)
         self.setTitleColor(UIColor.black, for: .normal)
-        self.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
+        self.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc fileprivate func sendButtonTapped() {
-        if let sendButtonTapped = self.buttonTapped {
-            sendButtonTapped()
+    @objc fileprivate func didTapButton() {
+        if let buttonTapped = self.buttonTapped {
+            buttonTapped()
         }
     }
 }

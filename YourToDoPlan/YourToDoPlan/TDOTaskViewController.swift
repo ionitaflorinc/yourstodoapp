@@ -23,7 +23,9 @@ class TDOTaskViewController: UIViewController, UITextViewDelegate {
         if let text = self.text {
             self.taskTextView.text = text
         }
-        
+        self.containerView.layer.cornerRadius = 15.0
+        self.containerView.layer.borderColor = UIColor.lightGray.cgColor
+        self.containerView.layer.borderWidth = 2.0
 //        let topBlurView = self.configureBlurView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.containerView.frame.origin.y))
 //        
 //        let y = self.containerView.frame.origin.y + self.containerView.frame.height
