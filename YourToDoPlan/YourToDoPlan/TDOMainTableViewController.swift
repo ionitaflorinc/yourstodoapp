@@ -36,17 +36,15 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
     // MARK: Private
     
     fileprivate func setupDataSource() {
-        let dataSource = UserDefaults.standard.object(forKey: kTDODatasource)
-        
-        if dataSource == nil {
+        if let dataSource = UserDefaults.standard.object(forKey: kTDODatasource) {
+            self.dataSource = dataSource as! [String]
+        } else {
             self.dataSource = [
                 "First task for today \nMonday",
                 "Second task for today \nMonday",
                 "Third task for today \nMonday",
                 "Forth task for today \nMonday"
             ]
-        } else {
-            self.dataSource = dataSource as! [String]
         }
     }
     
