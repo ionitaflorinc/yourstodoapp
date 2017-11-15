@@ -12,12 +12,13 @@ import MessageUI
 let kTDODatasource = "kTDODatasource"
 
 class TDOMainTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-    // Mark : Properties
+    
+    // MARK: - Properties
     
     fileprivate var addTaskButton: TDOAddTaskButton!
     fileprivate var dataSource: [String]!
     
-    // MARK : Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,33 +32,6 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
         
         self.setupAddTaskButton()
         UIApplication.shared.windows.last?.addSubview(self.addTaskButton);
-    }
-    
-    // MARK: Private
-    
-    fileprivate func setupDataSource() {
-        if let dataSource = UserDefaults.standard.object(forKey: kTDODatasource) {
-            self.dataSource = dataSource as! [String]
-        } else {
-            self.dataSource = [
-                "First task for today \nMonday",
-                "Second task for today \nMonday",
-                "Third task for today \nMonday",
-                "Forth task for today \nMonday"
-            ]
-        }
-    }
-    
-    fileprivate func setupAddTaskButton() {
-        self.addTaskButton = Bundle.main.loadNibNamed("TDOAddTaskButton", owner: self, options: nil)?.first as! TDOAddTaskButton
-        self.addTaskButton.frame = CGRect.init(x: UIScreen.main.bounds.size.width / 3 * 2.4,
-                                               y: UIScreen.main.bounds.size.height / 3 * 2.6,
-                                               width: 50,
-                                               height: 50)
-        
-        self.addTaskButton.addTaskButtonPressedHandler = {
-            self.displayTaskWindow(text: "", index: nil)
-        }
     }
 
     // MARK: - Table view data source
@@ -113,6 +87,33 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
         self.displayTaskWindow(text: self.dataSource[indexPath.row], index: NSNumber.init(value: indexPath.row))
     }
     
+    // MARK: - Private
+    
+    fileprivate func setupDataSource() {
+        if let dataSource = UserDefaults.standard.object(forKey: kTDODatasource) {
+            self.dataSource = dataSource as! [String]
+        } else {
+            self.dataSource = [
+                "First task for today \nMonday",
+                "Second task for today \nMonday",
+                "Third task for today \nMonday",
+                "Forth task for today \nMonday"
+            ]
+        }
+    }
+    
+    fileprivate func setupAddTaskButton() {
+        self.addTaskButton = Bundle.main.loadNibNamed("TDOAddTaskButton", owner: self, options: nil)?.first as! TDOAddTaskButton
+        self.addTaskButton.frame = CGRect.init(x: UIScreen.main.bounds.size.width / 3 * 2.4,
+                                               y: UIScreen.main.bounds.size.height / 3 * 2.6,
+                                               width: 50,
+                                               height: 50)
+        
+        self.addTaskButton.addTaskButtonPressedHandler = {
+            self.displayTaskWindow(text: "", index: nil)
+        }
+    }
+    
     fileprivate func sendEmail(text: String) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -150,25 +151,12 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
         window.makeKeyAndVisible()
     }
     
+    // MARK: - MFMailCompose delegate methods
     
     internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 }
 
 extension CALayer {
