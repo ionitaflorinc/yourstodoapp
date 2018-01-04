@@ -1,0 +1,3 @@
+rootProject.name = 'ToDoReact'
+
+include ':app'
