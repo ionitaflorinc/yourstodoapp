@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
     var databaseRef: DatabaseReference!
     var user: User!
+    
     var dataSource = [MainTableViewCellItem]()
     var doneTasks = [MainTableViewCellItem]()
-    
     var newDoneTasks = [MainTableViewCellItem]()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -62,17 +62,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 }
             })
             
-            self.databaseRef.child("user_profiles").child(user!.uid).child("done_tasks").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let tasks = snapshot.value as? NSArray {
+            self.databaseRef.child("user_profiles").child(user!.uid).child("data_source").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let tasks = snapshot.value as? NSDictionary {
                     for item in tasks {
-                        if let task = item as? NSDictionary {
-                            let text = task["text"] as! String
-                            let date = task["date"] as! String
-                            
-                            let taskItem = MainTableViewCellItem.init(text: text, date: Utils.dateFromString(date))
-                            self.dataSource.append(taskItem)
-                        }
+                        let taskDictionary = item.value as? NSDictionary
+                        let text = taskDictionary!["text"] as! String
+                        let date = taskDictionary!["date"] as! String
+                        
+                        let taskItem = MainTableViewCellItem.init(text: text, date: Utils.dateFromString(date))
+                        self.dataSource.append(taskItem)
                     }
+                    
+                    NotificationCenter.default.post(name: Utils.kDataSourceLoadedNotification, object: nil)
                 }
             })
             
@@ -84,24 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
     }
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
         for item in self.newDoneTasks {
             let dateAsString = Utils.stringFromDate(item.date!)
             let newRef = self.databaseRef.child("user_profiles").child(self.user.uid).child("done_tasks").childByAutoId()
@@ -117,12 +100,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             newRef.child("text").setValue(item.text!)
             newRef.child("date").setValue(dateAsString)
         }
-        
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
     }
     
 }
 
 struct Utils {
+    static let kDataSourceLoadedNotification = NSNotification.Name.init("kDataSourceLoadedNotification")
+    
     static func dateFromString(_ string: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"

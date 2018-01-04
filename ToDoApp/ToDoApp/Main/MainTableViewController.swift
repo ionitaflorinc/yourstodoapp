@@ -10,24 +10,33 @@ import UIKit
 
 class MainTableViewController: UITableViewController, MainTableViewCellDelegate, CreateTaskViewControllerDelegate {
 
-    fileprivate var dataSource: [MainTableViewCellItem]!
-    fileprivate var doneTasks: [MainTableViewCellItem]!
-    fileprivate var newDoneTasks: [MainTableViewCellItem]!
-    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ActivityIndicatorManager.show(false)
-        
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        
-        self.dataSource = delegate.dataSource
-        self.doneTasks = delegate.doneTasks
-        self.newDoneTasks = delegate.newDoneTasks
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(dataSourceLoadedNotification),
+                                               name: Utils.kDataSourceLoadedNotification,
+                                               object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: Utils.kDataSourceLoadedNotification, object: nil)
+    }
+    
+    fileprivate func getTaskViewController() -> CreateTaskViewController {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let taskViewController = storyBoard.instantiateViewController(withIdentifier: "CreateTaskViewControllerIndetifier") as! CreateTaskViewController
+        
+        return taskViewController
+    }
+    
+    @objc fileprivate func dataSourceLoadedNotification() {
+        self.tableView.reloadData()
+        ActivityIndicatorManager.show(false)
     }
     
     // MARK: - Table view data source
@@ -37,7 +46,7 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
+        return delegate.dataSource.count
     }
 
     
@@ -45,20 +54,13 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         if let customCell = cell as? MainTableViewCell {
-            let item = self.dataSource[indexPath.row]
+            let item = delegate.dataSource[indexPath.row]
             let date = Utils.stringFromDate(item.date!)
             customCell.setupWith(text: item.text!, date:date)
             customCell.delegate = self
         }
         
         return cell
-    }
- 
-    fileprivate func getTaskViewController() -> CreateTaskViewController {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let taskViewController = storyBoard.instantiateViewController(withIdentifier: "CreateTaskViewControllerIndetifier") as! CreateTaskViewController
-        
-        return taskViewController
     }
     
     @IBAction func didTapRightBarButton(_ sender: Any) {
@@ -73,7 +75,7 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
         let taskViewController = self.getTaskViewController()
         
         let indexPath = self.tableView.indexPath(for: cell)!
-        let item = self.dataSource[indexPath.row]
+        let item = delegate.dataSource[indexPath.row]
         
         taskViewController.text = item.text
         taskViewController.date = item.date
@@ -85,14 +87,14 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
     
     func cellDidReceiveTapOnDoneButton(_ cell: MainTableViewCell, button: UIButton) {
         let indexPath = self.tableView.indexPath(for: cell)!
-        self.newDoneTasks.append(self.dataSource[indexPath.row])
-        self.dataSource.remove(at: indexPath.row)
+        delegate.newDoneTasks.append(delegate.dataSource[indexPath.row])
+        delegate.dataSource.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
     func cellDidReceiveTapOnDeleteButton(_ cell: MainTableViewCell, button: UIButton) {
         let indexPath = self.tableView.indexPath(for: cell)!
-        self.dataSource.remove(at: indexPath.row)
+        delegate.dataSource.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
@@ -100,9 +102,9 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
         let item = MainTableViewCellItem.init(text: selectedString, date: selectedDate)
         
         if viewController.isEditingController! {
-            self.dataSource[viewController.indexOfEditedItem!] = item
+            delegate.dataSource[viewController.indexOfEditedItem!] = item
         } else {
-            self.dataSource.append(item)
+            delegate.dataSource.append(item)
         }
         self.tableView.reloadData()
     }
