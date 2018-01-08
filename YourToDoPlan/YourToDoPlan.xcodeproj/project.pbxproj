@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C102EFD1FE039E8001F6433 /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C102EFA1FE039E7001F6433 /* BarEntry.swift */; };
+		4C102EFE1FE039E8001F6433 /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C102EFB1FE039E7001F6433 /* BasicBarChart.swift */; };
+		4C102EFF1FE039E8001F6433 /* BeautifulBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C102EFC1FE039E7001F6433 /* BeautifulBarChart.swift */; };
 		4C4F21871FB595340014369D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F21861FB595340014369D /* AppDelegate.swift */; };
 		4C4F218C1FB595340014369D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F218A1FB595340014369D /* Main.storyboard */; };
 		4C4F218E1FB595340014369D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F218D1FB595340014369D /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C102EFA1FE039E7001F6433 /* BarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
+		4C102EFB1FE039E7001F6433 /* BasicBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
+		4C102EFC1FE039E7001F6433 /* BeautifulBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautifulBarChart.swift; sourceTree = "<group>"; };
 		4C4F21831FB595340014369D /* YourToDoPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourToDoPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4F21861FB595340014369D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C4F218B1FB595340014369D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C102EF91FE039E7001F6433 /* BarChart  */ = {
+			isa = PBXGroup;
+			children = (
+				4C102EFA1FE039E7001F6433 /* BarEntry.swift */,
+				4C102EFB1FE039E7001F6433 /* BasicBarChart.swift */,
+				4C102EFC1FE039E7001F6433 /* BeautifulBarChart.swift */,
+			);
+			path = "BarChart ";
+			sourceTree = "<group>";
+		};
 		4C4F217A1FB595340014369D = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +80,7 @@
 		4C4F21851FB595340014369D /* YourToDoPlan */ = {
 			isa = PBXGroup;
 			children = (
+				4C102EF91FE039E7001F6433 /* BarChart  */,
 				4C4F21861FB595340014369D /* AppDelegate.swift */,
 				4C4F218A1FB595340014369D /* Main.storyboard */,
 				4C4F218D1FB595340014369D /* Assets.xcassets */,
@@ -154,11 +171,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C102EFD1FE039E8001F6433 /* BarEntry.swift in Sources */,
 				4C4F21991FB5968C0014369D /* TDOMainTableViewController.swift in Sources */,
+				4C102EFF1FE039E8001F6433 /* BeautifulBarChart.swift in Sources */,
 				4C4F219B1FB597770014369D /* TDOAddTaskButton.swift in Sources */,
 				4C4F21871FB595340014369D /* AppDelegate.swift in Sources */,
 				4C4F21A21FB5D60E0014369D /* TDOTaskViewController.swift in Sources */,
 				4C4F219F1FB5CFF10014369D /* TDOActionButton.swift in Sources */,
+				4C102EFE1FE039E8001F6433 /* BasicBarChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

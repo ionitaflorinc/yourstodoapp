@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
     var databaseRef: DatabaseReference!
     var user: User!
+    var powerUser: Bool!
     
     var dataSource = [MainTableViewCellItem]()
     var doneTasks = [MainTableViewCellItem]()
@@ -63,22 +64,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             })
             
             self.databaseRef.child("user_profiles").child(user!.uid).child("data_source").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let tasks = snapshot.value as? NSDictionary {
-                    for item in tasks {
-                        let taskDictionary = item.value as? NSDictionary
-                        let text = taskDictionary!["text"] as! String
-                        let date = taskDictionary!["date"] as! String
-                        
-                        let taskItem = MainTableViewCellItem.init(text: text, date: Utils.dateFromString(date))
-                        self.dataSource.append(taskItem)
-                    }
+                if (snapshot.value as? NSDictionary) != nil {
+                    self.dataSource = self.dataSourceForSnapshot(snapshot)
                     
                     NotificationCenter.default.post(name: Utils.kDataSourceLoadedNotification, object: nil)
+                } else {
+                    ActivityIndicatorManager.show(false)
+                }
+            })
+            
+            self.databaseRef.child("user_profiles").child(user!.uid).child("done_tasks").observeSingleEvent(of: .value, with: { (snapshot) in
+                if (snapshot.value as? NSDictionary) != nil {
+                    self.doneTasks = self.dataSourceForSnapshot(snapshot)
+                }
+            })
+            
+            self.databaseRef.child("user_profiles").child(user!.uid).child("power_user").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let snapValue = snapshot.value {
+                    self.powerUser = snapValue as! Bool
+                } else {
+                    self.powerUser = false
                 }
             })
             
             self.window?.rootViewController?.childViewControllers.first?.performSegue(withIdentifier: "MainLogicIdentifier", sender: nil)
         }
+    }
+    
+    func dataSourceForSnapshot(_ snapshot: DataSnapshot) -> [MainTableViewCellItem] {
+        var dataSourceItems: [MainTableViewCellItem] = []
+        
+        if let tasks = snapshot.value as? NSDictionary {
+            for item in tasks {
+                let taskDictionary = item.value as? NSDictionary
+                let text = taskDictionary!["text"] as! String
+                let date = taskDictionary!["date"] as! String
+                
+                let taskItem = MainTableViewCellItem.init(text: text, date: Utils.dateFromString(date))
+                dataSourceItems.append(taskItem)
+            }
+        }
+        
+        return dataSourceItems
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

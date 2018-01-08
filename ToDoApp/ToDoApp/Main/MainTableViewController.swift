@@ -27,11 +27,24 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
         NotificationCenter.default.removeObserver(self, name: Utils.kDataSourceLoadedNotification, object: nil)
     }
     
-    fileprivate func getTaskViewController() -> CreateTaskViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        LocalNotificationsManager.shared.requestAuthorization()
+    }
+    
+    fileprivate func taskViewController() -> CreateTaskViewController {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let taskViewController = storyBoard.instantiateViewController(withIdentifier: "CreateTaskViewControllerIndetifier") as! CreateTaskViewController
         
         return taskViewController
+    }
+    
+    fileprivate func chartsViewController() -> ChartsViewController {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let chartsViewController = storyBoard.instantiateViewController(withIdentifier: "ChartsViewControllerIdentifier") as! ChartsViewController
+        
+        return chartsViewController
     }
     
     @objc fileprivate func dataSourceLoadedNotification() {
@@ -64,15 +77,21 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
     }
     
     @IBAction func didTapRightBarButton(_ sender: Any) {
-        let taskViewController = self.getTaskViewController()
+        let taskViewController = self.taskViewController()
         
         taskViewController.isEditingController = false
         taskViewController.delegate = self
         self.navigationController?.pushViewController(taskViewController, animated: true)
     }
     
+    @IBAction func didTapChartsButton(_ sender: Any) {
+        let chartsViewController = self.chartsViewController()
+        
+        self.navigationController?.pushViewController(chartsViewController, animated: true)
+    }
+    
     func cellDidReceiveTapOnEditButton(_ cell: MainTableViewCell, button: UIButton) {
-        let taskViewController = self.getTaskViewController()
+        let taskViewController = self.taskViewController()
         
         let indexPath = self.tableView.indexPath(for: cell)!
         let item = delegate.dataSource[indexPath.row]
@@ -105,7 +124,12 @@ class MainTableViewController: UITableViewController, MainTableViewCellDelegate,
             delegate.dataSource[viewController.indexOfEditedItem!] = item
         } else {
             delegate.dataSource.append(item)
+            
+            if delegate.powerUser {
+                LocalNotificationsManager.shared.sendLocalPush(in: 1.0, title: "You have one new task", body: selectedString)
+            }
         }
+        
         self.tableView.reloadData()
     }
 

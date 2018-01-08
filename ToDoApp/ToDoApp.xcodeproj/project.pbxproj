@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0F3E792003FD9D00370B7F /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3E782003FD9D00370B7F /* LocalNotificationsManager.swift */; };
 		4C69EC6E1FFD490F000E54A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69EC6D1FFD490F000E54A1 /* AppDelegate.swift */; };
 		4C69EC701FFD490F000E54A1 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69EC6F1FFD490F000E54A1 /* AuthenticationViewController.swift */; };
 		4C69EC731FFD490F000E54A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69EC711FFD490F000E54A1 /* Main.storyboard */; };
@@ -18,10 +19,15 @@
 		4C96E6821FFE7DCB007ECDCF /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E6811FFE7DCB007ECDCF /* ActivityIndicatorViewController.swift */; };
 		4C96E6841FFE7DF3007ECDCF /* ActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E6831FFE7DF3007ECDCF /* ActivityIndicatorManager.swift */; };
 		4C96E6861FFE80F4007ECDCF /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E6851FFE80F4007ECDCF /* CreateTaskViewController.swift */; };
+		4CB413471FFFD3CC00BF2C68 /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB413441FFFD3CC00BF2C68 /* BarEntry.swift */; };
+		4CB413481FFFD3CC00BF2C68 /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB413451FFFD3CC00BF2C68 /* BasicBarChart.swift */; };
+		4CB413491FFFD3CC00BF2C68 /* BeautifulBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB413461FFFD3CC00BF2C68 /* BeautifulBarChart.swift */; };
+		4CB4134B1FFFD5A500BF2C68 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4134A1FFFD5A500BF2C68 /* ChartsViewController.swift */; };
 		DF18D53538F0DEE89E36D3FB /* Pods_ToDoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB5C92917C4E813BB246809 /* Pods_ToDoApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0F3E782003FD9D00370B7F /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		4C69EC6A1FFD490F000E54A1 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C69EC6D1FFD490F000E54A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C69EC6F1FFD490F000E54A1 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,10 @@
 		4C96E6811FFE7DCB007ECDCF /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		4C96E6831FFE7DF3007ECDCF /* ActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		4C96E6851FFE80F4007ECDCF /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
+		4CB413441FFFD3CC00BF2C68 /* BarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
+		4CB413451FFFD3CC00BF2C68 /* BasicBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
+		4CB413461FFFD3CC00BF2C68 /* BeautifulBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautifulBarChart.swift; sourceTree = "<group>"; };
+		4CB4134A1FFFD5A500BF2C68 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		4EB5C92917C4E813BB246809 /* Pods_ToDoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F36542880FEB8CBC7095D6 /* Pods-ToDoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoApp/Pods-ToDoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C5D7F41D760A2EE129F5587E /* Pods-ToDoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoApp/Pods-ToDoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +84,7 @@
 		4C69EC6C1FFD490F000E54A1 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4CB413431FFFD3CC00BF2C68 /* BarChart  */,
 				4C96E6781FFE653D007ECDCF /* Main */,
 				4C69EC811FFD4AF4000E54A1 /* ToDoApp.entitlements */,
 				4C69EC7F1FFD4AEA000E54A1 /* GoogleService-Info.plist */,
@@ -95,8 +106,21 @@
 				4C96E6811FFE7DCB007ECDCF /* ActivityIndicatorViewController.swift */,
 				4C96E6831FFE7DF3007ECDCF /* ActivityIndicatorManager.swift */,
 				4C96E6851FFE80F4007ECDCF /* CreateTaskViewController.swift */,
+				4CB4134A1FFFD5A500BF2C68 /* ChartsViewController.swift */,
+				4C0F3E782003FD9D00370B7F /* LocalNotificationsManager.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4CB413431FFFD3CC00BF2C68 /* BarChart  */ = {
+			isa = PBXGroup;
+			children = (
+				4CB413441FFFD3CC00BF2C68 /* BarEntry.swift */,
+				4CB413451FFFD3CC00BF2C68 /* BasicBarChart.swift */,
+				4CB413461FFFD3CC00BF2C68 /* BeautifulBarChart.swift */,
+			);
+			name = "BarChart ";
+			path = "../../YourToDoPlan/YourToDoPlan/BarChart ";
 			sourceTree = "<group>";
 		};
 		7B5934695365F92ABD91F68D /* Frameworks */ = {
@@ -245,12 +269,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB413471FFFD3CC00BF2C68 /* BarEntry.swift in Sources */,
+				4CB4134B1FFFD5A500BF2C68 /* ChartsViewController.swift in Sources */,
+				4CB413481FFFD3CC00BF2C68 /* BasicBarChart.swift in Sources */,
 				4C96E6841FFE7DF3007ECDCF /* ActivityIndicatorManager.swift in Sources */,
 				4C69EC701FFD490F000E54A1 /* AuthenticationViewController.swift in Sources */,
+				4CB413491FFFD3CC00BF2C68 /* BeautifulBarChart.swift in Sources */,
 				4C96E67E1FFE6AC2007ECDCF /* MainTableViewController.swift in Sources */,
 				4C96E6801FFE6FEE007ECDCF /* MainTableViewCell.swift in Sources */,
 				4C96E6821FFE7DCB007ECDCF /* ActivityIndicatorViewController.swift in Sources */,
 				4C69EC6E1FFD490F000E54A1 /* AppDelegate.swift in Sources */,
+				4C0F3E792003FD9D00370B7F /* LocalNotificationsManager.swift in Sources */,
 				4C96E6861FFE80F4007ECDCF /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

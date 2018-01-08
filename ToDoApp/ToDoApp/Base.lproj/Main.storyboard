@@ -205,7 +205,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="knk-TU-gGL">
-                        <barButtonItem key="leftBarButtonItem" image="line-chart" id="CTg-zM-8eH"/>
+                        <barButtonItem key="leftBarButtonItem" image="line-chart" id="CTg-zM-8eH">
+                            <connections>
+                                <action selector="didTapChartsButton:" destination="fpD-LC-KWh" id="P8I-Vr-eZx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cyB-CB-82c">
                             <connections>
                                 <action selector="didTapRightBarButton:" destination="fpD-LC-KWh" id="CEV-lR-c11"/>
@@ -226,7 +230,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-ig-gTW">
-                                <rect key="frame" x="16" y="85" width="343" height="232"/>
+                                <rect key="frame" x="16" y="17" width="343" height="232"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="232" id="jqu-9v-xhG"/>
@@ -235,8 +239,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xg-jJ-w0P">
-                                <rect key="frame" x="71" y="325" width="232" height="162"/>
-                                <color key="backgroundColor" red="0.96782302860000002" green="0.92597109079999995" blue="0.88235545159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="71" y="254" width="232" height="162"/>
+                                <color key="backgroundColor" red="1" green="0.99651275100000003" blue="0.93928060440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="77q-05-ifJ"/>
                                 </constraints>
@@ -245,13 +249,13 @@
                                 </date>
                             </datePicker>
                         </subviews>
-                        <color key="backgroundColor" red="0.96782302860000002" green="0.92597109079999995" blue="0.88235545159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="0.99651275099781045" blue="0.93928060443985539" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="y0x-ig-gTW" firstAttribute="leading" secondItem="15X-Rw-8ie" secondAttribute="leading" constant="16" id="Rtj-8t-dGY"/>
-                            <constraint firstItem="6Xg-jJ-w0P" firstAttribute="top" secondItem="y0x-ig-gTW" secondAttribute="bottom" constant="8" id="Ttj-4c-Frl"/>
+                            <constraint firstItem="6Xg-jJ-w0P" firstAttribute="top" secondItem="y0x-ig-gTW" secondAttribute="bottom" constant="5" id="Ttj-4c-Frl"/>
                             <constraint firstItem="15X-Rw-8ie" firstAttribute="trailing" secondItem="y0x-ig-gTW" secondAttribute="trailing" constant="16" id="go6-D8-47k"/>
                             <constraint firstItem="6Xg-jJ-w0P" firstAttribute="leading" secondItem="15X-Rw-8ie" secondAttribute="leading" constant="71" id="lxk-EV-r4h"/>
-                            <constraint firstItem="y0x-ig-gTW" firstAttribute="top" secondItem="15X-Rw-8ie" secondAttribute="top" constant="65" id="rJJ-5L-bel"/>
+                            <constraint firstItem="y0x-ig-gTW" firstAttribute="top" secondItem="15X-Rw-8ie" secondAttribute="top" constant="-3" id="rJJ-5L-bel"/>
                             <constraint firstItem="15X-Rw-8ie" firstAttribute="trailing" secondItem="6Xg-jJ-w0P" secondAttribute="trailing" constant="72" id="uLH-EF-4QV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="15X-Rw-8ie"/>
@@ -264,6 +268,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFh-jA-5uV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3280.8000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Charts View Controller-->
+        <scene sceneID="Gzc-6W-rpy">
+            <objects>
+                <viewController storyboardIdentifier="ChartsViewControllerIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="13g-jT-pFK" customClass="ChartsViewController" customModule="ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hxn-Va-Mlm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wh9-6x-tPy">
+                                <rect key="frame" x="16" y="105" width="343" height="302"/>
+                                <color key="backgroundColor" red="1" green="0.99651275100000003" blue="0.93928060440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="302" id="Tgl-o1-32E"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99651275100000003" blue="0.93928060440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Zp1-bz-t2W" firstAttribute="trailing" secondItem="wh9-6x-tPy" secondAttribute="trailing" constant="16" id="ceX-0P-jtw"/>
+                            <constraint firstItem="wh9-6x-tPy" firstAttribute="top" secondItem="Zp1-bz-t2W" secondAttribute="top" constant="85" id="gpf-0J-vVu"/>
+                            <constraint firstItem="wh9-6x-tPy" firstAttribute="leading" secondItem="Zp1-bz-t2W" secondAttribute="leading" constant="16" id="zhS-xA-jVD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zp1-bz-t2W"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartsView" destination="wh9-6x-tPy" id="svV-Qs-Da5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a2b-li-56u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3280.8000000000002" y="818.14092953523243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c23-Lv-PEc">

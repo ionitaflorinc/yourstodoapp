@@ -25,8 +25,9 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
     
         self.setupDataSource()
         self.view.layoutIfNeeded()
+        self.setupChartsView()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -84,7 +85,7 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.displayTaskWindow(text: self.dataSource[indexPath.row], index: NSNumber.init(value: indexPath.row))
+        self.displayTaskWindow(text: self.dataSource[indexPath.row], index: NSNumber.init(value: indexPath.row), pickerViewHidden: true)
     }
     
     // MARK: - Private
@@ -94,12 +95,30 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
             self.dataSource = dataSource as! [String]
         } else {
             self.dataSource = [
-                "First task for today \nMonday",
-                "Second task for today \nMonday",
-                "Third task for today \nMonday",
-                "Forth task for today \nMonday"
+                "First task for today \nTuesday",
+                "Second task for today \nTuesday",
+                "First task for tomorrow \nWednesday",
             ]
         }
+    }
+    
+    fileprivate func setupChartsView() {
+        let frame = CGRect.init(x: 0, y: self.view.frame.height - self.view.frame.height / 3, width: self.view.frame.width, height: self.view.frame.height / 3)
+        let view = BasicBarChart.init(frame: frame)
+        
+        view.backgroundColor = .white
+        view.layer.addBorder(edge: .top, color: .lightGray, thickness: 1)
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowPath = UIBezierPath.init(rect: view.bounds).cgPath
+        view.layer.shadowOffset = CGSize.init(width: 2, height: 2)
+        view.layer.shadowRadius = 10
+        view.layer.shadowOpacity = 0.8
+        
+        view.dataEntries = [BarEntry(color: .blue, height: 0.75, textValue: "", title: "Today"),
+                            BarEntry(color: .green, height: 0.25, textValue: "", title: "Tomorrow")
+        ]
+        
+        UIApplication.shared.windows.last?.addSubview(view);
     }
     
     fileprivate func setupAddTaskButton() {
@@ -110,7 +129,7 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
                                                height: 50)
         
         self.addTaskButton.addTaskButtonPressedHandler = {
-            self.displayTaskWindow(text: "", index: nil)
+            self.displayTaskWindow(text: "", index: nil, pickerViewHidden: false)
         }
     }
     
@@ -126,12 +145,13 @@ class TDOMainTableViewController: UITableViewController, MFMailComposeViewContro
         }
     }
     
-    fileprivate func displayTaskWindow(text: String, index: NSNumber?) {
+    fileprivate func displayTaskWindow(text: String, index: NSNumber?, pickerViewHidden: Bool) {
         let taskViewController = TDOTaskViewController()
         
         let window = UIWindow.init(frame: UIScreen.main.bounds)
         
         taskViewController.text = text
+        taskViewController.shouldBePickerViewHidden = pickerViewHidden
         taskViewController.buttonCompletion = {
             if let index = index {
                 self.dataSource[index.intValue] = taskViewController.text!

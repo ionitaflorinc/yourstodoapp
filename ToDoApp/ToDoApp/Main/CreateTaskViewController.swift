@@ -27,10 +27,9 @@ class CreateTaskViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.textField.returnKeyType = .done
         
         self.setupDoneButton()
+        self.setupTextField()
         
         if let string = self.text {
             self.textField.text = string
@@ -41,6 +40,14 @@ class CreateTaskViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    fileprivate func setupTextField() {
+        self.textField.layer.shadowColor = UIColor.black.cgColor
+        self.textField.layer.shadowPath = UIBezierPath.init(rect: self.textField.bounds).cgPath
+        self.textField.layer.shadowOffset = CGSize.init(width: 2, height: 2)
+        self.textField.layer.shadowRadius = 10
+        self.textField.layer.shadowOpacity = 0.8
+    }
 
     fileprivate func setupDoneButton() {
         let rightBarButton = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(_:)))
@@ -49,13 +56,12 @@ class CreateTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc fileprivate func doneButtonTapped(_ button: UIBarButtonItem) {
-        self.delegate?.taskViewController(self, selectedString: self.textField.text, selectedDate: self.datePicker.date)
-        self.navigationController?.popViewController(animated: true)
+        if self.textField.isFirstResponder {
+            self.textField.resignFirstResponder()
+        } else {
+            self.delegate?.taskViewController(self, selectedString: self.textField.text, selectedDate: self.datePicker.date)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
-    }
+
 }
